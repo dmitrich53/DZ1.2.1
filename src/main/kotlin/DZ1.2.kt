@@ -1,22 +1,20 @@
 fun main() {
     while (true) {
         println("Введите сумму перевода в рублях")
-        val a = 100
-        val b = 0.75
-        var amaun1 = readLine()
-        var amaunt2: Int = amaun1!!.toInt()
-        var amaunt = amaunt2 * a
-        println("Вы хотите перевести $amaun1 рублей. В копейках это будет $amaunt копеек.")
-        var comr = amaunt / a * b // расчёт комиссии
-        if (comr / a < 35) {
+        val kopeckInRubles = 100
+        val commissionPercent = 0.75
+        val amount = readLine()?.toIntOrNull() ?: 0
+        val amountKopeck = amount * kopeckInRubles
+        println("Вы хотите перевести $amount рублей. В копейках это будет $amountKopeck копеек.")
+        val commission = amount / kopeckInRubles * commissionPercent // расчёт комиссии
+        if (amountKopeck / kopeckInRubles < 35) {
             println("Комиссия составит 3500 копеек.")
         } else {
-            println("Комиссия составит $comr копеек.")
+            println("Комиссия составит $commission копеек.")
         }
         println("")
         println("")
         println("Другой перевод - ENTER. Завершить - введите q и ENTER.")
-        var prov = readLine()
-        if (prov == "q") break
+        if (readLine() == "q") break
     }
 }
